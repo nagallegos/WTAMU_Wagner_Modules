@@ -1,0 +1,105 @@
+---
+title: "$I^2C$ Analysis"
+author: "Nickolas Gallegos"
+date: "2023-04-24"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+This document will be used to analyze capture data from the $I^2C$ module for \newline
+the _Wagner_ Project.
+
+
+The data is exported from the Saleae Logic Analyzer application and stored in \newline
+the "Captures" folder of the R Project.
+
+# Data
+
+The file is _i2c_2peripheral.csv_ and contains a logic capture of interactions \newline
+between one controller device (Raspberry Pi Pico) and two peripheral devices \newline
+(Adafruit ItsyBitsy and Adafruit Trinket M0).
+
+## Read in Data
+
+```{r}
+file <- "../Captures/i2c_2peripheral.csv"
+data1 <- read.csv(file)
+
+#View(data1)
+
+head(data1)
+tail(data1)
+colnames(data1)
+```
+
+## Clean Data and create subsets
+
+The data has column names:  
+  - name  
+  - type  
+  - start_time  
+  - duration  
+  - ack  
+  - address  
+  - read  
+  - data  
+  - description  
+  - count  
+  - action  
+  
+  
+The important columns will be the _type_, _start_time_, _duration_, _address_, _read_, _data_
+
+Get rid of the "I2C_STUSB4500" information (not certain what this is at the moment).
+```{r}
+data1 <- data1[(data1[,"name"] != "I2C_STUSB4500"),]
+```
+
+Only keep the "important" columns.
+```{r}
+cols <- c("type", "start_time", "duration", "address", "read", "data")
+data1_sub1 <- data1[,cols]
+#View(data1_sub1)
+```
+
+Now create subsets where the data comes from specific devices.
+```{r}
+address_type = data1_sub1[,"type"] == "address"
+head(data1_sub1[address_type,])
+```
+Creating a function to convert hex data to ASCII (prints ASCII until it sees $0xFF$)
+```{r}
+convert_to_ascii <- function(data_vec)
+{
+  result <- c()
+  for (data in data_vec) {
+    hex <- as.hexmode(data)
+    if (hex != 0xFF){
+      ch <- rawToChar( as.raw( hex ) )
+      result <- append(result,ch)
+    }
+  }
+  return(result)
+}
+
+#vec <- c("0x3A","0x42","0xFF")
+
+#convert_to_ascii(vec)
+```
+
+
+```{r}
+data_type <- data1_sub1[,"type"] == "data"
+
+d <- data1_sub1[data_type,"data"]
+dat <- convert_to_ascii(d)
+
+
+paste(dat,collapse = "")
+```
+
+

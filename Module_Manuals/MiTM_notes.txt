@@ -1,0 +1,3 @@
+install arpspoof
+install driftnet
+update /proc/sys/net/ipv4/ip_forward to 1 to allow packet forwarding
