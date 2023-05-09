@@ -1,3 +1,4 @@
+#include <base64.hpp>
 #include <Wire.h>
 
 int led = LED_BUILTIN;
