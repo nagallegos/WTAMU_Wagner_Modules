@@ -26,14 +26,16 @@ This part is important. These items must be completed before starting this modul
     ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager10.png?raw=true)
     7. Once complete, you can remove the adapter from the adapter from your computer and remove  
     the SD from the adapter to insert into the Pi.
-2. Once the SD card is in the Pi and the device is on, you will also want to connect to the internet.  
-then open a terminal and run `sudo apt update && sudo apt upgrade -y`.  
+2. Once the SD card is in, power the device on.
+3. The username and password is `kali`
+4. Once in, you will also want to connect to the internet.
+5. then open a terminal (`Ctrl + [Alt] + t`) and run `sudo apt update && sudo apt upgrade -y`.  
 This process could take several minutes.
-3. Once the updates are done, you will want to install the following items:
+6. Once the updates are done, you will want to install the following items:
     1. arpspoof: `sudo apt install dsniff`
     2. There may be more items added... (in general, as long as the updates are done, command-line  
     tools can be installed on the fly by using `sudo apt install [PACKAGE-NAME]`)
-4. After all the above items are complete, it is time to start the module!
+7. After all the above items are complete, it is time to start the module!
 
 ## Attacker Instructions
 
