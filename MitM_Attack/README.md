@@ -9,7 +9,7 @@ This part is important. These items must be completed before starting this modul
 1. The SD card must be imaged with the Kali Linux OS using the Raspberry Pi imager:
     1. Using a micro-SD USB adapter, insert the card into a computer with the Raspberry Pi Imager.
     2. Load up the Imager.  
-    ![alt text](./Images/RPi_imager1.png)
+    ![alt text](![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager2.png?raw=true))
     3. Under "Other specific-purpose OS" find "Kali Linux" and choose the  
     "Raspberry Pi 2,3,4 & 400 (32-Bit)" option.  
     ![alt text](./Images/RPi_imager2.png)
