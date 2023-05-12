@@ -1,23 +1,71 @@
 # Man in the Middle Attack Module
 
-This file is a placeholder for this folder.
+This README will go through the process of performing this attack.
+
+## Raspberry Pi Setup
+
+This part is important. These items must be completed before starting this module.  
+
+1. The SD card must be imaged with the Kali Linux OS using the Raspberry Pi imager:
+    1. Using a micro-SD USB adapter, insert the card into a computer with the Raspberry Pi Imager.
+    2. Load up the Imager.  
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager1.png)
+    3. Under "Other specific-purpose OS" find "Kali Linux" and choose the  
+    "Raspberry Pi 2,3,4 & 400 (32-Bit)" option.  
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager2.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager3.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager4.png)
+    4. Next, click "Choose Storage" and select the drive containing the SD you wish to image.  
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager5.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager6.png)
+    5. Finally, click "Write". When prompted, select "Yes".
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager7.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager8.png)
+    6. The image will start writing to the SD card and will notify when completed.  
+    This may take several minutes.  
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager9.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager10.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager11.png)
+    7. Once complete, you can remove the adapter from the adapter from your computer and remove  
+    the SD from the adapter to insert into the Pi.
+2. Once the SD card is in the Pi and the device is on, you will also want to connect to the internet.  
+then open a terminal and run `sudo apt update && sudo apt upgrade -y`.  
+This process could take several minutes.
+3. Once the updates are done, you will want to install the following items:
+    1. arpspoof: `sudo apt install dsniff`
+    2. There may be more items added... (in general, as long as the updates are done, command-line  
+    tools can be installed on the fly by using `sudo apt install [PACKAGE-NAME]`)
+4. After all the above items are complete, it is time to start the module!
 
 ## Attacker Instructions
 
 More is involved with the attacker in this module so we will start here:
 
-1. Load up the attacker machine which should utilize Kali linux.
-2. Open two terminals `Ctrl + [Alt] + T`:
+1. Power on the Raspberry Pi with Kali Linux. `kali` should be both the username and password.
+2. Open two terminals `Ctrl + [Alt] + t`:
     1. one will be used to communicate with the victim of the attack.
     2. the other will be used to communicate with the device that the victim intended to communicate with (via the router).
-3. Find your victim's and the gateway IP addresses:
-    1. A simple way to do this is to type `ifconfig` (Linux command)
-    on the target machine (or `ipconfig` on a Windows machine).
-    2. Another way is to utilize `arp -a` on the attacking machine and if the attack
+3. To make things easy, go into the root shell by typing `sudo -i`. It will likely prompt you to enter a password  
+which will just be `kali` which was used to log in. This elevates your privileges.
+4. Find your victim and the gateway's IP addresses:
+    1. A simple way find the IP addresses is to type `ifconfig` on the target machine.
+    2. Another way is to utilize `arp-scan -l` on the attacking machine and if the attack
     is being performed on a small, isolated network, the machine should be easily identified.
     The gateway typically ends in a 1 (Ex. `192.168.1.1`) and the target device will end
-    in something larger (Ex. `192.168.1.105`)
-4. On the terminal being used to communicate with your target (the victim), type in the command:  
-`sudo arpspoof -i wlan0 -t [VICTIMS_IP] [GATEWAY_IP]`
-5. On the terminal being used to communicate with the gateway (the router), type in the command:  
-`sudo arpspoof -i wlan0 -t [GATEWAY_IP] [VICTIMS_IP]`
+    in something larger (Ex. `192.168.1.105`).
+    3. IMPORTANT: Take note of:
+        1. The Gateway's current IP & MAC address.
+        2. The target's IP & MAC address.
+        3. Your (the attacker's) current IP & MAC address.
+5. Turn on packet forwarding:
+    1. Type the command `sysctl net.ipv4.ip_forward`. What value do you see?
+    2. If it is 0, we need to issue the command `sysctl net.ipv4.ip_forward=1`  
+    to turn ipv4 forwarding on. This means that your device will now forward packets  
+    instead of dropping them which would make the target unable to communicate over the network.
+6. On the terminal being used to communicate with your target (the victim), type in the command:  
+`arpspoof -i wlan0 -t [VICTIMS_IP] [GATEWAY_IP]`
+7. On the terminal being used to communicate with the gateway (the router), type in the command:  
+`arpspoof -i wlan0 -t [GATEWAY_IP] [VICTIMS_IP]`
+8. You are now making the target device think that you are the gateway and you are making the  
+gateway think that you are the target device. This also means that we can use Wireshark to see
+all of the target devices traffic.
