@@ -30,8 +30,8 @@ This part is important. These items must be completed before starting this modul
 3. The username and password is `kali`
 ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_login_screen.jpg?raw=true)
 5. Once in, you will also want to connect to the internet.  
-![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_wifi.jpg?raw=true)
-![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_wifi_connected.jpg?raw=true)
+![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_wifi.png?raw=true)
+![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_wifi_connected.png?raw=true)
 7. then open a terminal (`Ctrl + [Alt] + t`) and run `sudo apt update && sudo apt upgrade -y`.  
 This process could take several minutes.
 6. Once the updates are done, you will want to install the following items:
