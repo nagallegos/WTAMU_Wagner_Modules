@@ -9,22 +9,21 @@ This part is important. These items must be completed before starting this modul
 1. The SD card must be imaged with the Kali Linux OS using the Raspberry Pi imager:
     1. Using a micro-SD USB adapter, insert the card into a computer with the Raspberry Pi Imager.
     2. Load up the Imager.  
-    ![alt text](![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager2.png?raw=true))
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager1.png?raw=true)
     3. Under "Other specific-purpose OS" find "Kali Linux" and choose the  
     "Raspberry Pi 2,3,4 & 400 (32-Bit)" option.  
-    ![alt text](./Images/RPi_imager2.png)
-    ![alt text](./Images/RPi_imager3.png)
-    ![alt text](./Images/RPi_imager4.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager2.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager3.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager4.png?raw=true)
     4. Next, click "Choose Storage" and select the drive containing the SD you wish to image.  
-    ![alt text](./Images/RPi_imager5.png)
-    ![alt text](./Images/RPi_imager6.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager5.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager7.png?raw=true)
     5. Finally, click "Write". When prompted, select "Yes".
-    ![alt text](./Images/RPi_imager7.png)
-    ![alt text](./Images/RPi_imager8.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager8.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager9.png?raw=true)
     6. The image will start writing to the SD card and will notify when completed.  
     This may take several minutes.  
-    ![alt text](./Images/RPi_imager9.png)
-    ![alt text](./Images/RPi_imager10.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager10.png?raw=true)
     7. Once complete, you can remove the adapter from the adapter from your computer and remove  
     the SD from the adapter to insert into the Pi.
 2. Once the SD card is in the Pi and the device is on, you will also want to connect to the internet.  
