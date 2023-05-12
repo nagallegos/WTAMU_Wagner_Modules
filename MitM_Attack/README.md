@@ -34,6 +34,7 @@ This part is important. These items must be completed before starting this modul
 ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_wifi_connected.png?raw=true)
 7. then open a terminal (`Ctrl + [Alt] + t`) and run `sudo apt update && sudo apt upgrade -y`.  
 This process could take several minutes.
+![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_update.png?raw=true)
 6. Once the updates are done, you will want to install the following items:
     1. arpspoof: `sudo apt install dsniff`
     2. There may be more items added... (in general, as long as the updates are done, command-line  
