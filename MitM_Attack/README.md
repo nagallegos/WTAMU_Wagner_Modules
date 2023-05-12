@@ -28,8 +28,9 @@ This part is important. These items must be completed before starting this modul
     the SD from the adapter to insert into the Pi.
 2. Once the SD card is in, power the device on.
 3. The username and password is `kali`
-4. Once in, you will also want to connect to the internet.
-5. then open a terminal (`Ctrl + [Alt] + t`) and run `sudo apt update && sudo apt upgrade -y`.  
+![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_login_screen.jpg?raw=true)
+5. Once in, you will also want to connect to the internet.
+6. then open a terminal (`Ctrl + [Alt] + t`) and run `sudo apt update && sudo apt upgrade -y`.  
 This process could take several minutes.
 6. Once the updates are done, you will want to install the following items:
     1. arpspoof: `sudo apt install dsniff`
@@ -53,10 +54,10 @@ which will just be `kali` which was used to log in. This elevates your privilege
     is being performed on a small, isolated network, the machine should be easily identified.
     The gateway typically ends in a 1 (Ex. `192.168.1.1`) and the target device will end
     in something larger (Ex. `192.168.1.105`).
-    3. IMPORTANT: Take note of:
-        1. The Gateway's current IP & MAC address.
-        2. The target's IP & MAC address.
-        3. Your (the attacker's) current IP & MAC address.
+    3. IMPORTANT: Take note of:  
+      1. The Gateway's current IP & MAC address.
+      2. The target's IP & MAC address.
+      3. Your (the attacker's) current IP & MAC address.
 5. Turn on packet forwarding:
     1. Type the command `sysctl net.ipv4.ip_forward`. What value do you see?
     2. If it is 0, we need to issue the command `sysctl net.ipv4.ip_forward=1`  
