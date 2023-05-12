@@ -46,14 +46,17 @@ This process could take several minutes.
 More is involved with the attacker in this module so we will start here:
 
 1. Power on the Raspberry Pi with Kali Linux. `kali` should be both the username and password.
-2. Open two terminals `Ctrl + [Alt] + t`:
+2. Open three terminals `Ctrl + [Alt] + t`:
     1. one will be used to communicate with the victim of the attack.
     2. the other will be used to communicate with the device that the victim intended to communicate with (via the router).
-3. To make things easy, go into the root shell by typing `sudo -i`. It will likely prompt you to enter a password  
+    3. the third will be to enter other commands
+3. To make things easy, go into the root shell by typing `sudo -i` on each terminal. It will likely prompt you to enter a password  
 which will just be `kali` which was used to log in. This elevates your privileges.
 4. Find your victim and the gateway's IP addresses:
-    1. A simple way find the IP addresses is to type `ifconfig` on the target machine.
-    2. Another way is to utilize `arp-scan -l` on the attacking machine and if the attack
+    1. A simple way find the IP addresses is to type `ifconfig` on the target machine.  
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_ip?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_ip?raw=true)
+    3. Another way is to utilize `arp-scan -l` on the attacking machine and if the attack
     is being performed on a small, isolated network, the machine should be easily identified.
     The gateway typically ends in a 1 (Ex. `192.168.1.1`) and the target device will end
     in something larger (Ex. `192.168.1.105`).
