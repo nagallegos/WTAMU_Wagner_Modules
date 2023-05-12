@@ -9,32 +9,34 @@ This part is important. These items must be completed before starting this modul
 1. The SD card must be imaged with the Kali Linux OS using the Raspberry Pi imager:
     1. Using a micro-SD USB adapter, insert the card into a computer with the Raspberry Pi Imager.
     2. Load up the Imager.  
-    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager1.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager1.png?raw=true)
     3. Under "Other specific-purpose OS" find "Kali Linux" and choose the  
     "Raspberry Pi 2,3,4 & 400 (32-Bit)" option.  
-    ![alt text](./Images/RPi_imager2.png)
-    ![alt text](./Images/RPi_imager3.png)
-    ![alt text](https://github.com/nagallegos/WTAMU_Wagner_Modules/Images/RPi_imager4.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager2.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager3.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager4.png?raw=true)
     4. Next, click "Choose Storage" and select the drive containing the SD you wish to image.  
-    ![alt text](./Images/RPi_imager5.png)
-    ![alt text](./Images/RPi_imager6.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager5.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager7.png?raw=true)
     5. Finally, click "Write". When prompted, select "Yes".
-    ![alt text](./Images/RPi_imager7.png)
-    ![alt text](./Images/RPi_imager8.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager8.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager9.png?raw=true)
     6. The image will start writing to the SD card and will notify when completed.  
     This may take several minutes.  
-    ![alt text](./Images/RPi_imager9.png)
-    ![alt text](./Images/RPi_imager10.png)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/RPi_imager10.png?raw=true)
     7. Once complete, you can remove the adapter from the adapter from your computer and remove  
     the SD from the adapter to insert into the Pi.
-2. Once the SD card is in the Pi and the device is on, you will also want to connect to the internet.  
-then open a terminal and run `sudo apt update && sudo apt upgrade -y`.  
+2. Once the SD card is in, power the device on.
+3. The username and password is `kali`
+![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/kali_login_screen.jpg?raw=true)
+5. Once in, you will also want to connect to the internet.
+6. then open a terminal (`Ctrl + [Alt] + t`) and run `sudo apt update && sudo apt upgrade -y`.  
 This process could take several minutes.
-3. Once the updates are done, you will want to install the following items:
+6. Once the updates are done, you will want to install the following items:
     1. arpspoof: `sudo apt install dsniff`
     2. There may be more items added... (in general, as long as the updates are done, command-line  
     tools can be installed on the fly by using `sudo apt install [PACKAGE-NAME]`)
-4. After all the above items are complete, it is time to start the module!
+7. After all the above items are complete, it is time to start the module!
 
 ## Attacker Instructions
 
@@ -52,10 +54,10 @@ which will just be `kali` which was used to log in. This elevates your privilege
     is being performed on a small, isolated network, the machine should be easily identified.
     The gateway typically ends in a 1 (Ex. `192.168.1.1`) and the target device will end
     in something larger (Ex. `192.168.1.105`).
-    3. IMPORTANT: Take note of:
-        1. The Gateway's current IP & MAC address.
-        2. The target's IP & MAC address.
-        3. Your (the attacker's) current IP & MAC address.
+    3. IMPORTANT: Take note of:  
+      1. The Gateway's current IP & MAC address.
+      2. The target's IP & MAC address.
+      3. Your (the attacker's) current IP & MAC address.
 5. Turn on packet forwarding:
     1. Type the command `sysctl net.ipv4.ip_forward`. What value do you see?
     2. If it is 0, we need to issue the command `sysctl net.ipv4.ip_forward=1`  
