@@ -54,8 +54,8 @@ More is involved with the attacker in this module so we will start here:
 which will just be `kali` which was used to log in. This elevates your privileges.
 4. Find your victim and the gateway's IP addresses:
     1. A simple way find the IP addresses is to type `ifconfig` on the target machine.  
-    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_ip?raw=true)
-    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_ip?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_ip.png?raw=true)
+    ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_mac.png?raw=true)
     3. Another way is to utilize `arp-scan -l` on the attacking machine and if the attack
     is being performed on a small, isolated network, the machine should be easily identified.
     The gateway typically ends in a 1 (Ex. `192.168.1.1`) and the target device will end
