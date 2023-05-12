@@ -56,7 +56,7 @@ which will just be `kali` which was used to log in. This elevates your privilege
     1. A simple way find the IP addresses is to type `ifconfig` on the target machine.  
     ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_ip.png?raw=true)
     ![alt text](https://github.com/nagallegos/WTAMU_WAGNER_MODULES/blob/main/Images/ifconfig_targ_mac.png?raw=true)
-    3. Another way is to utilize `arp-scan -l` on the attacking machine and if the attack
+    2. Another way is to utilize `arp-scan -l` on the attacking machine and if the attack
     is being performed on a small, isolated network, the machine should be easily identified.
     The gateway typically ends in a 1 (Ex. `192.168.1.1`) and the target device will end
     in something larger (Ex. `192.168.1.105`).
