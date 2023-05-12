@@ -79,8 +79,8 @@ class ServerHandler(http.server.SimpleHTTPRequestHandler):
             return
 
 
-IP = '192.168.1.106' # Change this to current IP Address
-PORT = 80
+IP = '10.251.43.18' # Change this to current IP Address
+PORT = 8000
 Handler = ServerHandler
 document_root = './'
 
